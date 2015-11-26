@@ -56,10 +56,6 @@ for root, dirs, files in os.walk(path, topdown=False):
 			continue
 		num_of_files = num_of_files + 1 
 		name = name.encode('utf-8')
-		
-		
-		#with open(name) as f:
-		#	file_content = f.read()
                 name = unicode(name, errors='ignore')
 		name.decode('utf-8')
 		
@@ -70,7 +66,6 @@ for root, dirs, files in os.walk(path, topdown=False):
 		for token in tokens:
 			if token not in unique_words_in_file:
 				unique_words_in_file[token] = 0 #only the key that matters, value doesn't, so we just assign it to zero
-	
 		for unique_word_in_file in unique_words_in_file.keys(): #loop through all the tokens in the file
 			if unique_word_in_file not in word_to_docFreq_map:
 				word_to_docFreq_map[unique_word_in_file] = 1
@@ -82,8 +77,6 @@ for word in word_to_docFreq_map:
 		word_to_idf_map[word] = math.log(num_of_files/word_to_docFreq_map[word])
 	else:
 		pass
-
-
 
 sorted_word_to_idf_map = sorted(word_to_idf_map.items(), key=operator.itemgetter(1))
 sorted_word_to_idf_map.reverse()
@@ -101,12 +94,10 @@ for word in word_to_docFreq_map:
 		else:
 			pass
 	
-
-
 sorted_word_to_no_stop_word_idf_map = sorted(word_to_no_stop_word_idf_map.items(), key=operator.itemgetter(1))
 sorted_word_to_no_stop_word_idf_map.reverse()
 
 for i in range(len(sorted_word_to_no_stop_word_idf_map)):
 	outputFile1.write (str(sorted_word_to_no_stop_word_idf_map[i][0]) + "\n")
-
+	
 outputFile1.close() 
