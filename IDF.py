@@ -41,14 +41,13 @@ word_to_docFreq_map = {}
 word_to_idf_map = {}
 word_to_no_stop_word_idf_map = {} 
 #change the path to the directory that contains all the files and python program	
-path = "/home/yh1008/NLP/hw5/unzip/all-OANC-dir/" 
+path = "/home/yh1008/NLP/unzip/all-OANC-dir/" 
 
 dir = os.listdir(path)
 num_of_files = 0 #store the total number of documents in all-OANC-dir directory
 list = [] #store all distinct token within a file 
 
 #print (os.getcwd())
-#print ("**********************************************whole directory: " )
 #print dir
 tokens =[]
 for root, dirs, files in os.walk(path, topdown=False):
@@ -88,8 +87,6 @@ for word in word_to_docFreq_map:
 
 sorted_word_to_idf_map = sorted(word_to_idf_map.items(), key=operator.itemgetter(1))
 sorted_word_to_idf_map.reverse()
-
-#print (sorted_word_to_idf_map)
 
 for i in range(len(sorted_word_to_idf_map)):
 	outputFile.write (str(sorted_word_to_idf_map[i][0]) + "\n")
