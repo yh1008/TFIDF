@@ -1,4 +1,4 @@
-This is an implementation of IDF (inverse term frequency count)
+#####This is an implementation of IDF (inverse term frequency count)
 
 The program will produce: 
 
